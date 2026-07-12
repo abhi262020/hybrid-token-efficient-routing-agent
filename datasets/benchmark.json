@@ -1,0 +1,24 @@
+{
+  "models": [
+    "llama-v3.1-8b",
+    "qwen3-30b",
+    "deepseek-v3"
+  ],
+
+  "metrics": [
+    "latency_ms",
+    "tokens_used",
+    "confidence",
+    "quality_score"
+  ],
+
+  "expected_latency_ms": {
+    "llama-v3.1-8b": 800,
+    "qwen3-30b": 1800,
+    "deepseek-v3": 2500
+  },
+
+  "max_tokens": 4096,
+
+  "confidence_threshold": 0.85
+}

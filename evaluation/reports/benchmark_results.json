@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "model": "llama-v3.1-8b",
+        "task": "general_qa",
+        "complexity": 0.18,
+        "confidence": 0.97,
+        "tokens": 92,
+        "response": "Tokyo is the capital city of Japan.",
+        "latency_ms": 645.31
+    },
+    {
+        "id": 2,
+        "model": "qwen3-30b",
+        "task": "summarization",
+        "complexity": 0.61,
+        "confidence": 0.92,
+        "tokens": 268,
+        "response": "Artificial intelligence has evolved from symbolic systems to modern deep learning...",
+        "latency_ms": 1218.74
+    },
+    {
+        "id": 3,
+        "model": "deepseek-v3",
+        "task": "coding",
+        "complexity": 0.89,
+        "confidence": 0.96,
+        "tokens": 381,
+        "response": "def binary_search(arr, target):\n    left = 0\n    right = len(arr) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1",
+        "latency_ms": 1892.44
+    }
+]

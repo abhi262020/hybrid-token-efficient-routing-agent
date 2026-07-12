@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "expected_model": "llama-v3.1-8b",
+    "reason": "Simple factual question"
+  },
+  {
+    "id": 2,
+    "expected_model": "qwen3-30b",
+    "reason": "Medium summarization"
+  },
+  {
+    "id": 3,
+    "expected_model": "deepseek-v3",
+    "reason": "Programming task"
+  },
+  {
+    "id": 4,
+    "expected_model": "deepseek-v3",
+    "reason": "Logical reasoning"
+  },
+  {
+    "id": 5,
+    "expected_model": "llama-v3.1-8b",
+    "reason": "Simple translation"
+  },
+  {
+    "id": 6,
+    "expected_model": "qwen3-30b",
+    "reason": "Creative writing"
+  },
+  {
+    "id": 7,
+    "expected_model": "llama-v3.1-8b",
+    "reason": "Basic mathematics"
+  },
+  {
+    "id": 8,
+    "expected_model": "qwen3-30b",
+    "reason": "Medical explanation"
+  },
+  {
+    "id": 9,
+    "expected_model": "deepseek-v3",
+    "reason": "Legal reasoning"
+  },
+  {
+    "id": 10,
+    "expected_model": "qwen3-30b",
+    "reason": "Scientific explanation"
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "task": "general_qa",
+    "prompt": "What is the capital of Japan?"
+  },
+  {
+    "id": 2,
+    "task": "summarization",
+    "prompt": "Summarize the history of artificial intelligence in 100 words."
+  },
+  {
+    "id": 3,
+    "task": "coding",
+    "prompt": "Write a Python function to perform binary search."
+  },
+  {
+    "id": 4,
+    "task": "reasoning",
+    "prompt": "If all roses are flowers and some flowers fade quickly, can we conclude that some roses fade quickly?"
+  },
+  {
+    "id": 5,
+    "task": "translation",
+    "prompt": "Translate 'Good morning' into French."
+  },
+  {
+    "id": 6,
+    "task": "creative",
+    "prompt": "Write a short story about an AI robot on Mars."
+  },
+  {
+    "id": 7,
+    "task": "math",
+    "prompt": "Solve: (15 × 24) + 96 ÷ 4."
+  },
+  {
+    "id": 8,
+    "task": "medical",
+    "prompt": "Explain the symptoms of diabetes in simple language."
+  },
+  {
+    "id": 9,
+    "task": "legal",
+    "prompt": "What is intellectual property?"
+  },
+  {
+    "id": 10,
+    "task": "science",
+    "prompt": "Explain how photosynthesis works."
+  }
+]
