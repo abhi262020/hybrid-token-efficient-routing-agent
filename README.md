@@ -1,92 +1,40 @@
 # 🚀 Hybrid Token-Efficient Routing Agent
 
-> AMD Developer Hackathon 2026 – Track 1
-
-An intelligent AI routing system that automatically selects the most cost-effective Large Language Model (LLM) based on prompt complexity, task type, confidence, and token efficiency. Built with **FastAPI**, **React**, and **Fireworks AI** on **AMD infrastructure**.
+AMD Developer Hackathon 2026 – Track 1
 
 ---
 
-## 📌 Overview
+## Overview
 
-Most AI applications send every request to the largest available model, resulting in unnecessary cost and latency.
+Hybrid Token-Efficient Routing Agent intelligently selects the best LLM for a prompt based on task type, complexity, confidence, and token efficiency.
 
-Hybrid Token-Efficient Routing Agent solves this by analyzing each prompt and dynamically routing it to the most appropriate LLM.
-
-The system performs:
-
-- Intent Classification
-- Complexity Estimation
-- Model Selection
-- AI Response Generation
-- Confidence Validation
-- Automatic Escalation
-- Token Analytics
-
-This enables faster inference, lower API costs, and improved scalability without sacrificing response quality.
+Instead of sending every request to the largest model, it dynamically routes prompts to lightweight or powerful models as needed, reducing latency, API costs, and token usage.
 
 ---
 
-## ✨ Features
+## Features
 
-- Intelligent prompt classification
+- Automatic prompt classification
 - Complexity estimation
-- Dynamic LLM routing
-- Confidence-based validation
-- Automatic model escalation
-- Token usage analytics
-- REST API using FastAPI
-- Modern React + Vite frontend
+- Intelligent model routing
+- Confidence scoring
+- Automatic escalation
+- Token usage tracking
+- FastAPI backend
+- React + Vite frontend
 - Fireworks AI integration
-- AMD Hackathon ready
 
 ---
 
-## 🏗 Architecture
+## Models
 
-```
-User Prompt
-     │
-     ▼
-Intent Classifier
-     │
-     ▼
-Complexity Estimator
-     │
-     ▼
-Routing Policy
-     │
-     ▼
-Select Best Model
-     │
-     ▼
-Fireworks AI
-     │
-     ▼
-Response Validator
-     │
-     ▼
-Confidence Check
-     │
-     ▼
-Escalation (if required)
-     │
-     ▼
-Final Response
-```
+- Llama 3.1 8B
+- Qwen3 30B
+- DeepSeek V3
 
 ---
 
-## 🤖 Supported Models
-
-| Model | Purpose |
-|--------|----------|
-| GPT-OSS-120B | Complex reasoning |
-| Qwen3-30B | Medium complexity |
-| Llama 3.1 8B | Lightweight tasks |
-
----
-
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Backend
 
@@ -94,66 +42,26 @@ Final Response
 - FastAPI
 - Fireworks AI API
 - HTTPX
-- Pydantic
 
 ### Frontend
 
 - React
 - TypeScript
 - Vite
-- CSS
-
-### AI
-
-- GPT-OSS-120B
-- Fireworks AI
-- Token Analytics
-- Dynamic Routing
 
 ---
 
-## 📁 Project Structure
-
-```
-HybridRouter/
-│
-├── app/
-│   ├── api/
-│   ├── classifier/
-│   ├── router/
-│   ├── fireworks/
-│   ├── validator/
-│   ├── analytics/
-│   └── main.py
-│
-├── frontend/
-│
-├── datasets/
-│
-├── evaluation/
-│
-├── tests/
-│
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── README.md
-└── .env.example
-```
-
----
-
-## ⚙ Installation
+## Installation
 
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/hybrid-token-efficient-routing-agent.git
+git clone https://github.com/yourusername/hybrid-router.git
 
-cd hybrid-token-efficient-routing-agent
+cd hybrid-router
 ```
 
-Install Python dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -165,13 +73,13 @@ Create environment file
 cp .env.example .env
 ```
 
-Run Backend
+Run backend
 
 ```bash
 python -m uvicorn app.main:app --reload
 ```
 
-Run Frontend
+Run frontend
 
 ```bash
 cd frontend
@@ -183,29 +91,19 @@ npm run dev
 
 ---
 
-## 🔐 Environment Variables
+## API
+
+POST
 
 ```
-FIREWORKS_API_KEY=your_api_key
-
-FIREWORKS_BASE_URL=https://api.fireworks.ai/inference/v1
-
-DEFAULT_MODEL=accounts/fireworks/models/gpt-oss-120b
-
-CONFIDENCE_THRESHOLD=0.85
+/route
 ```
 
----
-
-## 🌐 REST API
-
-### POST /route
-
-Request
+Example
 
 ```json
 {
-  "prompt": "Explain Quantum Computing"
+    "prompt":"Explain Quantum Computing"
 }
 ```
 
@@ -213,32 +111,26 @@ Response
 
 ```json
 {
-  "model": "accounts/fireworks/models/gpt-oss-120b",
-  "task": "general",
-  "complexity": 3,
-  "confidence": 0.94,
-  "tokens": 210,
-  "response": "Quantum computing is..."
+    "model":"llama-v3.1-8b",
+    "task":"general",
+    "complexity":0.42,
+    "confidence":0.95,
+    "tokens":210,
+    "response":"..."
 }
 ```
 
 ---
 
-## 📊 Evaluation
-
-Run benchmarks
+## Evaluation
 
 ```bash
 python evaluation/benchmark.py
 ```
 
-Compare models
-
 ```bash
 python evaluation/compare_models.py
 ```
-
-Analyze token usage
 
 ```bash
 python evaluation/token_analysis.py
@@ -246,7 +138,7 @@ python evaluation/token_analysis.py
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
 pytest
@@ -254,9 +146,9 @@ pytest
 
 ---
 
-## 🐳 Docker
+## Docker
 
-Build and run
+Build
 
 ```bash
 docker compose up --build
@@ -264,42 +156,6 @@ docker compose up --build
 
 ---
 
-## 📷 Demo
+## License
 
-<img width="100%" src="images/demo.png">
-
----
-
-## 🚀 Future Improvements
-
-- Streaming responses
-- Multi-provider routing
-- RAG support
-- GPU utilization dashboard
-- Real-time cost estimation
-- Multi-agent orchestration
-
----
-
-## 🏆 AMD Developer Hackathon 2026
-
-**Track 1 – Hybrid Token-Efficient Routing Agent**
-
-Built using:
-
-- AMD Infrastructure
-- Fireworks AI
-- GPT-OSS-120B
-- FastAPI
-- React
-- TypeScript
-
----
-
-## 📄 License
-
-MIT License
-
----
-
-**Made with ❤️ for the AMD Developer Hackathon 2026**
+MIT
