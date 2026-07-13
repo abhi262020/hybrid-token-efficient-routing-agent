@@ -10,11 +10,15 @@ import ResponseCard from "../components/ResponseCard";
 interface RouteResponse {
   model: string;
   task: string;
-  complexity: string;
+  complexity: number;
   confidence: number;
   tokens: number;
   response: string;
 }
+
+const API_BASE =
+  import.meta.env.VITE_API_URL ||
+  "http://127.0.0.1:8000";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -27,7 +31,9 @@ export default function Home() {
     setResult(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/route", {
+      console.log("Backend:", API_BASE);
+
+      const response = await fetch(`${API_BASE}/route`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +46,9 @@ export default function Home() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.detail || "Backend Error");
+        throw new Error(
+          data.detail || data.error || "Backend Error"
+        );
       }
 
       setResult(data);
@@ -84,10 +92,7 @@ export default function Home() {
             }}
           >
             <h3>🚀 Routing Prompt...</h3>
-
-            <p>
-              Selecting the most efficient AI model...
-            </p>
+            <p>Selecting the most efficient AI model...</p>
           </div>
         )}
 
@@ -103,18 +108,14 @@ export default function Home() {
             }}
           >
             <strong>Error</strong>
-
             <br />
-
             {error}
           </div>
         )}
 
         {result && (
           <>
-            <ModelBadge
-              model={result.model}
-            />
+            <ModelBadge model={result.model} />
 
             <MetricsCard
               model={result.model}
@@ -124,13 +125,9 @@ export default function Home() {
               tokens={result.tokens}
             />
 
-            <TokenChart
-              tokens={result.tokens}
-            />
+            <TokenChart tokens={result.tokens} />
 
-            <ResponseCard
-              response={result.response}
-            />
+            <ResponseCard response={result.response} />
           </>
         )}
       </div>
