@@ -11,11 +11,9 @@ export interface RouteResponse {
   response: string;
 }
 
-// Local development uses localhost.
-// Production uses the Vercel environment variable.
+// Render Backend
 const API_BASE =
-  import.meta.env.VITE_API_URL ||
-  "http://127.0.0.1:8000";
+  "https://hybrid-token-efficient-routing-agent-j5ht.onrender.com";
 
 export async function routePrompt(
   request: RouteRequest
@@ -30,8 +28,8 @@ export async function routePrompt(
   });
 
   if (!response.ok) {
-    const message = await response.text();
-    throw new Error(message || "Failed to contact backend");
+    const error = await response.text();
+    throw new Error(error || "Failed to contact backend");
   }
 
   return await response.json();
